@@ -14,13 +14,11 @@ spec:
   apicurioRegistry: {}
   collector: {}
   restProducer: {}
+  security:
+    internalTls: NONE
   strimziOverrides:
     kafka:
       replicas: {{ .Values.kafka_replicas}}
-      authorization:
-        type: custom
-        supportsAdminApi: true
-        authorizerClass: com.ibm.eventstreams.runas.authorizer.RunAsAuthorizer
       config:
         inter.broker.protocol.version: {{ .Values.kafka_config.inter_broker_protocol_version}}
         log.cleaner.threads: 6
